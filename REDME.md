@@ -1,5 +1,7 @@
-# Introduction
- Network URL: http://10.7.43.141:8501
+# Introduction 
+To access the app, follow the below link
+ 
+Streamlit App: [Bagging](https://madhuriawachar1-ml-assignment3-madhuria-app-j32bfa.streamlit.app/)
 
  
 Bagging can reduce variance in model because of bootstraping and aggregation without impacting the bias.
