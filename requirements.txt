@@ -1,0 +1,5 @@
+mlxtend
+numpy
+sklearn
+matplotlib
+streamlit
