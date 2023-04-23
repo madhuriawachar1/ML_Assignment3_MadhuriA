@@ -20,9 +20,20 @@ To demonstrate how bagging reduces variance, the Streamlit app allows the user t
 In the app, the decision boundary visualizations show how the bagging model changes as the number of learners is increased. 
 
 ### For classification
+#### dataset
+X, y = make_classification(n_samples=200, n_features=2, n_informative=2,
+                                    n_redundant=0, n_clusters_per_class=1, random_state=42)
+    
+
+
 the decision boundary becomes smoother and less sensitive to small changes in the input features as the number of learners increases.
 
 ### For regression
+
+#### dataset
+ X, y = make_regression(n_samples=200, n_features=1, noise=20, random_state=42)
+
+
  the prediction becomes smoother and less erratic as the number of learners increases, as the aggregate prediction becomes less sensitive to the specific training data used to fit each individual model.
 
 Overall, the app demonstrates how bagging can reduce variance for both classification and regression, and how this is demonstrated by the number of learners used in the bagging model.
