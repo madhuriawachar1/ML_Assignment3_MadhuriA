@@ -1,5 +1,5 @@
 mlxtend
 numpy
 sklearn
-matplotlib.pyplot
+matplotlib
 streamlit
