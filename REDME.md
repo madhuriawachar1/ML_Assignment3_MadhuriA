@@ -1,5 +1,7 @@
 # Introduction
+ Network URL: http://10.7.43.141:8501
 
+ 
 Bagging can reduce variance in model because of bootstraping and aggregation without impacting the bias.
 in bagging each model is low bias and high variance model.
 
