@@ -1,5 +1,5 @@
 # Introduction 
-To access the app, follow the below link
+To access the app, follow the below link.
  
 Streamlit App: [Bagging](https://madhuriawachar1-ml-assignment3-madhuria-app-j32bfa.streamlit.app/)
 
