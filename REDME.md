@@ -13,6 +13,19 @@ Bagging is a technique that involves training multiple models on different subse
 By using thesemultiple models trained, bagging reduces the variance of the overall model, which can improve its generalization performance on new, unseen data.
 
 
+## depth
+the depth of the decision tree is controlled by a slider that ranges from 1 to 6.
+As the depth increases, the model becomes more flexible and can better fit the training data, but there is a risk of overfitting.
+
+* depth in classification
+
+A decision tree with a smaller depth (e.g., depth=1) will create simple decision boundaries, while a decision tree with a larger depth (e.g., depth=6) will create more complex decision boundaries. 
+
+* depth in regression
+
+the decision tree is being used to learn the relationship between the input features and the output variable. A decision tree with a smaller depth will create simpler relationships, while a decision tree with a larger depth will create more complex relationships. 
+
+
 * create model
 
 In the above code, ```the create_model function ```creates a bagging model for either classification or regression.
