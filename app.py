@@ -32,12 +32,18 @@ from sklearn.datasets import make_classification, make_regression
 from sklearn.ensemble import BaggingClassifier, BaggingRegressor
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from mlxtend.plotting import plot_decision_regions
-
+from sklearn.datasets import make_classification, make_regression, load_iris
 # Define a function to create the data
-def create_data(option):
+def create_data(option,dataset):
     if option == 'Classification':
-        X, y = make_classification(n_samples=200, n_features=2, n_informative=2,
-                                    n_redundant=0, n_clusters_per_class=1, random_state=42)
+        if dataset == 'Dataset 1':
+            X, y = make_classification(n_samples=200, n_features=2, n_informative=2, n_redundant=0, n_classes=2, random_state=42)
+        
+        else:
+            iris = load_iris()
+            X = iris.data[:, :2]
+            y = iris.target
+    
     else:
         X, y = make_regression(n_samples=200, n_features=1, noise=20, random_state=42)
     return X, y
@@ -45,10 +51,11 @@ def create_data(option):
 # Define a function to create the bagging model
 def create_model(option, n_learners):
     if option == 'Classification':
-        base_estimator = DecisionTreeClassifier()
+        base_estimator = DecisionTreeClassifier(max_depth=max_depth)
+        model = BaggingClassifier(base_estimator=base_estimator, n_estimators=n_learners, random_state=42)
         model = BaggingClassifier(base_estimator=base_estimator, n_estimators=n_learners)
     else:
-        base_estimator = DecisionTreeRegressor()
+        base_estimator = DecisionTreeRegressor(max_depth=max_depth)
         model = BaggingRegressor(base_estimator=base_estimator, n_estimators=n_learners)
     return model
 
@@ -58,11 +65,20 @@ st.title('Bagging Demo')
 # Define a dropdown menu to select classification or regression
 option = st.sidebar.selectbox('Select a task:', ('Classification', 'Regression'))
 
+
+if option == 'Classification':
+    dataset = st.sidebar.selectbox('Dataset:', ('Dataset 1', 'Iris'))
+else:
+    dataset = None
+
 # Define a slider to adjust the number of learners
 n_learners = st.sidebar.slider('Number of learners:', 1, 50, 10)
 
+
+max_depth = st.sidebar.slider('Max depth of decision tree:', 1, 6, 3)
+
 # Create the data and the bagging model
-X, y = create_data(option)
+X, y = create_data(option,dataset)
 model = create_model(option, n_learners)
 
 # Fit the model to the data
